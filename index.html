@@ -1,0 +1,19 @@
+<input id="userInput" placeholder="Type something" />
+<button onclick="saveStuff()">Save</button>
+<p id="display"></p>
+
+<script>
+  function saveStuff() {
+    const stuff = document.getElementById("userInput").value;
+    localStorage.setItem("userStuff", stuff);
+    displayStuff();
+  }
+
+  function displayStuff() {
+    const stored = localStorage.getItem("userStuff");
+    document.getElementById("display").innerText = stored || "No stuff yet.";
+  }
+
+  // Run when page loads
+  displayStuff();
+</script>
